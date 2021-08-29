@@ -1,11 +1,17 @@
 package net.kata.calculator;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class StringCalculator {
+    private static final List<String> ALLOWED_SEPARATORS = Arrays.asList(",", "\n");
+
     public int add(String text) {
         if (text == null || text.isBlank()) {
             return 0;
         }
-        String[] numbers = text.split(",");
+
+        String[] numbers = text.split(String.join("|", ALLOWED_SEPARATORS));
         int result = 0;
 
         for (String str : numbers) {
