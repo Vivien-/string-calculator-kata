@@ -6,10 +6,12 @@ public class StringCalculator {
             return 0;
         }
         String[] numbers = text.split(",");
+        int result = 0;
 
-        int first = numbers.length > 0 ? parseIntOrZero(numbers[0]) : 0;
-        int second = numbers.length > 1 ? parseIntOrZero(numbers[1]) : 0;
-        return first + second;
+        for (String str : numbers) {
+            result += parseIntOrZero(str);
+        }
+        return result;
     }
 
     private int parseIntOrZero(String str) {
